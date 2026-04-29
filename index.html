@@ -437,7 +437,7 @@
       <h2 class="h-headline">お申し込みフォーム</h2>
       <p class="lead" style="text-align:center;margin-top:14px">下のフォームに必要事項をご入力の上、送信ボタンを押してください。</p>
     </div>
-    <form class="form" onsubmit="event.preventDefault();showPracticeMsg()">
+    <form class="form" onsubmit="event.preventDefault();showPracticeMsg();">
       <p class="form__title">初回限定 65%OFF ¥9,800（税込・送料無料）</p>
       <div class="form__field"><label for="name">お名前</label><input type="text" id="name" placeholder="山田 花子" required></div>
       <div class="form__field"><label for="email">メールアドレス</label><input type="email" id="email" placeholder="example@email.com" required></div>
@@ -497,7 +497,19 @@
 
 <div class="sticky-cta">
   <div class="sticky-cta__price">初回限定<br><strong>¥9,800</strong></div>
-  <button onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'})">今すぐ申し込む →</button>
+  <button>今すぐ申し込む →</button>
+</div>
+
+<!-- Custom Practice Modal (replaces alert) -->
+<div class="practice-modal" id="practiceModal" aria-hidden="true">
+  <div class="practice-modal__backdrop"></div>
+  <div class="practice-modal__box" role="dialog" aria-labelledby="pmTitle">
+    <p class="practice-modal__brand">Kona Kon</p>
+    <span class="practice-modal__rule"></span>
+    <h3 class="practice-modal__title" id="pmTitle">練習中だから<br>買えないよ〜！</h3>
+    <p class="practice-modal__sub">ふ・・・</p>
+    <button class="practice-modal__close" type="button">CLOSE</button>
+  </div>
 </div>
 
 <script>
@@ -506,10 +518,22 @@ document.querySelectorAll('.q__q').forEach(b => {
   b.addEventListener('click', () => b.parentElement.classList.toggle('is-open'));
 });
 
-// Practice message — 全購入ボタンで表示
+// Custom modal — ブラウザのドメイン表示なし
+const pmModal = document.getElementById('practiceModal');
 function showPracticeMsg(){
-  alert('練習中だから買えないよ〜！　ふ・・・');
+  pmModal.classList.add('is-show');
+  pmModal.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
 }
+function hidePracticeMsg(){
+  pmModal.classList.remove('is-show');
+  pmModal.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+pmModal.querySelector('.practice-modal__backdrop').addEventListener('click', hidePracticeMsg);
+pmModal.querySelector('.practice-modal__close').addEventListener('click', hidePracticeMsg);
+document.addEventListener('keydown', e => { if(e.key==='Escape') hidePracticeMsg(); });
+
 document.querySelectorAll('.cta-big, .sticky-cta button, .hd__cta a').forEach(el => {
   el.addEventListener('click', e => {
     e.preventDefault();
