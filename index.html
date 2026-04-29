@@ -167,6 +167,17 @@
   </div>
 </section>
 
+<!-- QUIZ CTA -->
+<section class="quiz-cta">
+  <div class="quiz-cta__inner">
+    <p class="kicker kicker--center kicker--red">— Skin Diagnosis</p>
+    <h2 class="quiz-cta__title">あなたの肌、<em>30秒</em>で診断。</h2>
+    <p class="quiz-cta__lead">6つの質問に答えるだけで、AIがあなたに最適なルーティンを提案します。</p>
+    <button class="cta-big quiz-trigger" type="button">無料で肌診断を始める</button>
+    <p class="quiz-cta__note">※ お名前・メールアドレス不要。すぐに結果が見られます。</p>
+  </div>
+</section>
+
 <!-- ORIGIN: full-bleed wakaba -->
 <section class="origin">
   <div class="origin__bg" style="background-image:url('images/wakaba-hero.jpg')"></div>
@@ -276,12 +287,27 @@
   <div class="ba__head">
     <p class="kicker kicker--center kicker--red">— After 28 days</p>
     <h2 class="h-display">使用<em>28日後</em>の、<br>変化を実感した方の声。</h2>
+    <p class="ba__instruction">↔ つまんで動かしてみてください</p>
   </div>
-  <div class="ba__row">
-    <div class="ba__col"><img src="images/customer-1.jpg" alt=""><strong>BEFORE</strong><span>使用前</span></div>
-    <div class="ba__arrow">→</div>
-    <div class="ba__col"><img src="images/customer-3.jpg" alt=""><strong>AFTER 28 days</strong><span>1日2回・28日後の使用感</span></div>
+
+  <!-- Interactive Before/After Slider -->
+  <div class="ba-slider" id="baSlider">
+    <div class="ba-slider__inner">
+      <div class="ba-slider__after">
+        <img src="images/customer-3.jpg" alt="After" draggable="false">
+        <span class="ba-slider__label ba-slider__label--after">AFTER 28 days</span>
+      </div>
+      <div class="ba-slider__before">
+        <img src="images/customer-1.jpg" alt="Before" draggable="false">
+        <span class="ba-slider__label ba-slider__label--before">BEFORE</span>
+      </div>
+      <div class="ba-slider__handle">
+        <span class="ba-slider__handle-line"></span>
+        <span class="ba-slider__handle-knob">↔</span>
+      </div>
+    </div>
   </div>
+
   <p class="ba__caption">
     使用後、<em>93%</em> の方が「肌のうるおい・ハリの印象」を実感<sup>※</sup>。
   </p>
@@ -527,6 +553,124 @@
   <button>今すぐ申し込む →</button>
 </div>
 
+<!-- ============== SKIN DIAGNOSIS QUIZ ============== -->
+<div class="quiz" id="quiz" aria-hidden="true">
+  <div class="quiz__backdrop"></div>
+  <div class="quiz__panel" role="dialog" aria-labelledby="quizTitle">
+    <button class="quiz__close" aria-label="閉じる" type="button">×</button>
+    <div class="quiz__progress"><span class="quiz__progress-bar" id="quizBar"></span></div>
+    <p class="quiz__counter" id="quizCounter">Question 1 / 6</p>
+
+    <!-- Q1 -->
+    <section class="quiz__step is-active" data-step="1">
+      <p class="quiz__num">Q.01</p>
+      <h3 class="quiz__q">あなたの年齢層を教えてください。</h3>
+      <div class="quiz__opts">
+        <button class="quiz__opt" data-q="age" data-v="20s">20代</button>
+        <button class="quiz__opt" data-q="age" data-v="30s">30代</button>
+        <button class="quiz__opt" data-q="age" data-v="40s">40代</button>
+        <button class="quiz__opt" data-q="age" data-v="50s">50代以上</button>
+      </div>
+    </section>
+
+    <!-- Q2 -->
+    <section class="quiz__step" data-step="2">
+      <p class="quiz__num">Q.02</p>
+      <h3 class="quiz__q">普段の肌質は、どのタイプですか？</h3>
+      <div class="quiz__opts">
+        <button class="quiz__opt" data-q="type" data-v="dry">乾燥肌</button>
+        <button class="quiz__opt" data-q="type" data-v="normal">普通肌</button>
+        <button class="quiz__opt" data-q="type" data-v="combo">混合肌</button>
+        <button class="quiz__opt" data-q="type" data-v="sensitive">敏感肌</button>
+      </div>
+    </section>
+
+    <!-- Q3 -->
+    <section class="quiz__step" data-step="3">
+      <p class="quiz__num">Q.03</p>
+      <h3 class="quiz__q">いま一番気になる肌の悩みは？</h3>
+      <div class="quiz__opts">
+        <button class="quiz__opt" data-q="concern" data-v="dull">くすみ印象</button>
+        <button class="quiz__opt" data-q="concern" data-v="firm">ハリのなさ</button>
+        <button class="quiz__opt" data-q="concern" data-v="texture">キメ・毛穴</button>
+        <button class="quiz__opt" data-q="concern" data-v="dryness">乾燥</button>
+      </div>
+    </section>
+
+    <!-- Q4 -->
+    <section class="quiz__step" data-step="4">
+      <p class="quiz__num">Q.04</p>
+      <h3 class="quiz__q">スキンケアにかける時間は？</h3>
+      <div class="quiz__opts">
+        <button class="quiz__opt" data-q="time" data-v="quick">朝3分以下、サクッと</button>
+        <button class="quiz__opt" data-q="time" data-v="standard">朝晩5分ずつ</button>
+        <button class="quiz__opt" data-q="time" data-v="long">夜は10分以上、丁寧に</button>
+        <button class="quiz__opt" data-q="time" data-v="ritual">儀式のように、毎日入念に</button>
+      </div>
+    </section>
+
+    <!-- Q5 -->
+    <section class="quiz__step" data-step="5">
+      <p class="quiz__num">Q.05</p>
+      <h3 class="quiz__q">美容液にかける月額予算は？</h3>
+      <div class="quiz__opts">
+        <button class="quiz__opt" data-q="budget" data-v="low">〜5,000円</button>
+        <button class="quiz__opt" data-q="budget" data-v="mid">5,000〜10,000円</button>
+        <button class="quiz__opt" data-q="budget" data-v="high">10,000〜20,000円</button>
+        <button class="quiz__opt" data-q="budget" data-v="premium">20,000円以上</button>
+      </div>
+    </section>
+
+    <!-- Q6 -->
+    <section class="quiz__step" data-step="6">
+      <p class="quiz__num">Q.06</p>
+      <h3 class="quiz__q">あなたのライフスタイルに近いのは？</h3>
+      <div class="quiz__opts">
+        <button class="quiz__opt" data-q="life" data-v="active">毎日アクティブ・運動派</button>
+        <button class="quiz__opt" data-q="life" data-v="busy">忙しい仕事人</button>
+        <button class="quiz__opt" data-q="life" data-v="indoor">インドア派・PCワーク中心</button>
+        <button class="quiz__opt" data-q="life" data-v="balanced">バランス型</button>
+      </div>
+    </section>
+
+    <!-- Loading screen -->
+    <section class="quiz__step quiz__loading" data-step="loading">
+      <div class="quiz__spinner"></div>
+      <p class="quiz__loading-text">AIが、あなたの肌を分析中…</p>
+      <p class="quiz__loading-sub" id="loadingSub">国産プラセンタ × 北海道発酵酵母 × コーヒー若葉エキスから最適配合を計算中</p>
+    </section>
+
+    <!-- Result -->
+    <section class="quiz__step quiz__result" data-step="result">
+      <p class="quiz__num quiz__num--result">— Your Diagnosis</p>
+      <h2 class="quiz__result-title">あなたの肌タイプ：<br><em id="resultType">—</em></h2>
+
+      <div class="quiz__result-card">
+        <div class="quiz__result-text">
+          <p class="quiz__result-label">AI診断レポート</p>
+          <p class="quiz__result-body" id="resultBody"></p>
+          <ul class="quiz__result-stats" id="resultStats"></ul>
+        </div>
+        <div class="quiz__result-product">
+          <img src="images/product-hero.jpg" alt="Kona Kon Luminous Serum">
+          <p class="quiz__rec-label">あなたへのおすすめ</p>
+          <h3>Kona Kon<br>Luminous Serum</h3>
+          <p class="quiz__rec-price">¥9,800<small>（初回65%OFF・税込）</small></p>
+          <button class="cta-big cta-big--red quiz__rec-cta" type="button">この処方を試す</button>
+        </div>
+      </div>
+
+      <div class="quiz__result-routine">
+        <h4>あなたへの推奨ルーティン</h4>
+        <div class="quiz__routine-grid" id="routineGrid"></div>
+      </div>
+
+      <button class="quiz__retry" type="button">もう一度診断する</button>
+    </section>
+
+  </div>
+</div>
+
 <!-- Custom Practice Modal (replaces alert) -->
 <div class="practice-modal" id="practiceModal" aria-hidden="true">
   <div class="practice-modal__backdrop"></div>
@@ -562,11 +706,240 @@ pmModal.querySelector('.practice-modal__close').addEventListener('click', hidePr
 document.addEventListener('keydown', e => { if(e.key==='Escape') hidePracticeMsg(); });
 
 document.querySelectorAll('.cta-big, .sticky-cta button, .hd__cta a').forEach(el => {
+  // Don't intercept quiz CTAs
+  if(el.classList.contains('quiz-trigger') || el.classList.contains('quiz__rec-cta')) return;
   el.addEventListener('click', e => {
     e.preventDefault();
     showPracticeMsg();
   });
 });
+
+/* ============== SKIN DIAGNOSIS QUIZ ============== */
+(function(){
+  const quiz = document.getElementById('quiz');
+  const trigger = document.querySelector('.quiz-trigger');
+  const close = quiz.querySelector('.quiz__close');
+  const backdrop = quiz.querySelector('.quiz__backdrop');
+  const bar = document.getElementById('quizBar');
+  const counter = document.getElementById('quizCounter');
+  const steps = quiz.querySelectorAll('.quiz__step');
+  const loadingSub = document.getElementById('loadingSub');
+  const retry = quiz.querySelector('.quiz__retry');
+
+  let answers = {};
+  let currentStep = 1;
+  const TOTAL_Q = 6;
+
+  // Result types based on combined answers
+  const RESULT_TYPES = {
+    'dull-firm': {
+      type: 'リペア・ラディアンス型',
+      en: 'Repair Radiance',
+      body: 'くすみ印象とハリ不足を同時に感じている方。年齢に応じたケアで「翌朝の手応え」を求めるタイプ。クロロゲン酸豊富なコーヒーノキ若葉エキスと、北海道発酵酵母の短鎖ペプチドの相乗が、あなたの肌に最適です。',
+      stats: [['ハリケア', 92],['透明感ケア', 88],['潤い', 78],['発酵成分相性', 95]],
+      routine: [
+        ['朝','化粧水 → Luminous Serum 2滴 → 乳液'],
+        ['夜','化粧水 → Luminous Serum 3滴（重ね付け）→ クリーム'],
+        ['週末','クリームパックで集中ケア']
+      ]
+    },
+    'dry-firm': {
+      type: 'インテンシブ・ハイドレーション型',
+      en: 'Intensive Hydration',
+      body: '乾燥とハリ不足が同時に進行しているタイプ。角層の水分保持力が落ちている可能性があります。フィッシュコラーゲン超低分子（500Da）を3層リポソームで届けるLuminous Serumが、内側からのうるおいをサポートします。',
+      stats: [['潤い', 96],['ハリケア', 89],['バリア機能', 82],['浸透性', 94]],
+      routine: [
+        ['朝','化粧水（重ねづけ）→ Luminous Serum 3滴 → 乳液 → クリーム'],
+        ['夜','美容オイル → Luminous Serum 3滴 → ナイトクリーム'],
+        ['毎日','内側からの水分摂取 1.5L以上を心がけて']
+      ]
+    },
+    'sensitive-dryness': {
+      type: 'ジェントル・リペア型',
+      en: 'Gentle Repair',
+      body: '敏感さと乾燥を抱えているタイプ。刺激の少ない処方が必要です。Luminous Serumは無香料・無着色・パラベン不使用・アルコールフリー設計。発酵酵母の短鎖ペプチドが、乱れがちな肌コンディションを整えます。',
+      stats: [['低刺激性', 98],['潤い', 91],['バリア機能', 88],['鎮静ケア', 90]],
+      routine: [
+        ['朝','低刺激化粧水 → Luminous Serum 2滴 → ミルクタイプ乳液'],
+        ['夜','クリームを薄く → Luminous Serum 2滴 → ナイトクリーム'],
+        ['注意','使用前は二の腕でパッチテストを推奨']
+      ]
+    },
+    'default': {
+      type: 'プレミアム・グロウ型',
+      en: 'Premium Glow',
+      body: 'バランスの取れた肌質の中で、より上質なケアを求めているタイプ。スペシャルティクラスの美容液で、肌の透明感とハリを同時に底上げできます。Kona Kon Luminous Serumは、3つの厳選国産成分でその期待に応えます。',
+      stats: [['透明感ケア', 90],['ハリケア', 87],['潤い', 85],['総合バランス', 92]],
+      routine: [
+        ['朝','化粧水 → Luminous Serum 2滴 → 乳液'],
+        ['夜','化粧水 → Luminous Serum 3滴 → クリーム'],
+        ['週末','コットンパックで深く浸透']
+      ]
+    }
+  };
+
+  function determineResult(){
+    const c = answers.concern, t = answers.type;
+    if(c==='dull' && (t==='dry'||t==='combo')) return RESULT_TYPES['dull-firm'];
+    if(c==='firm' && (t==='dry'||t==='normal')) return RESULT_TYPES['dull-firm'];
+    if(c==='dryness') return RESULT_TYPES['dry-firm'];
+    if(t==='sensitive') return RESULT_TYPES['sensitive-dryness'];
+    if(c==='firm' && t==='dry') return RESULT_TYPES['dry-firm'];
+    return RESULT_TYPES['default'];
+  }
+
+  function open(){
+    quiz.classList.add('is-show');
+    quiz.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    reset();
+  }
+  function closeQuiz(){
+    quiz.classList.remove('is-show');
+    quiz.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  function reset(){
+    answers = {};
+    currentStep = 1;
+    showStep(1);
+  }
+  function showStep(n){
+    steps.forEach(s=>s.classList.remove('is-active'));
+    const target = quiz.querySelector(`.quiz__step[data-step="${n}"]`);
+    if(target) target.classList.add('is-active');
+    if(typeof n === 'number'){
+      counter.textContent = `Question ${n} / ${TOTAL_Q}`;
+      counter.style.opacity = 1;
+      bar.style.width = `${(n/TOTAL_Q)*100}%`;
+    } else {
+      counter.style.opacity = 0;
+      bar.style.width = '100%';
+    }
+  }
+  function selectOption(btn){
+    const q = btn.dataset.q, v = btn.dataset.v;
+    answers[q] = v;
+    btn.classList.add('is-selected');
+    setTimeout(()=>{
+      btn.classList.remove('is-selected');
+      if(currentStep < TOTAL_Q){
+        currentStep++;
+        showStep(currentStep);
+      } else {
+        showLoading();
+      }
+    }, 350);
+  }
+  function showLoading(){
+    showStep('loading');
+    const messages = [
+      '国産プラセンタ × 北海道発酵酵母 × コーヒー若葉エキスから最適配合を計算中',
+      '24,000件の使用感データから、あなたの肌に近いタイプを照合中',
+      '推奨ルーティンを生成しています'
+    ];
+    let i = 0;
+    const interval = setInterval(()=>{
+      i = (i+1) % messages.length;
+      loadingSub.textContent = messages[i];
+    }, 1100);
+    setTimeout(()=>{
+      clearInterval(interval);
+      showResult();
+    }, 3200);
+  }
+  function showResult(){
+    const r = determineResult();
+    document.getElementById('resultType').textContent = r.type;
+    document.getElementById('resultBody').textContent = r.body;
+    const statsHtml = r.stats.map(([label,val])=>`
+      <li><span class="quiz__stat-label">${label}</span>
+      <span class="quiz__stat-bar"><span style="width:${val}%"></span></span>
+      <span class="quiz__stat-num">${val}</span></li>`).join('');
+    document.getElementById('resultStats').innerHTML = statsHtml;
+    const routineHtml = r.routine.map(([when,desc])=>`
+      <div class="quiz__routine-item"><strong>${when}</strong><p>${desc}</p></div>`).join('');
+    document.getElementById('routineGrid').innerHTML = routineHtml;
+    showStep('result');
+  }
+
+  // Event listeners
+  trigger.addEventListener('click', open);
+  close.addEventListener('click', closeQuiz);
+  backdrop.addEventListener('click', closeQuiz);
+  retry.addEventListener('click', reset);
+  document.addEventListener('keydown', e => { if(e.key==='Escape' && quiz.classList.contains('is-show')) closeQuiz(); });
+  quiz.querySelectorAll('.quiz__opt').forEach(btn => {
+    btn.addEventListener('click', ()=> selectOption(btn));
+  });
+  // Recommendation CTA goes to offer
+  quiz.querySelector('.quiz__rec-cta').addEventListener('click', ()=>{
+    closeQuiz();
+    setTimeout(()=>{
+      const offer = document.getElementById('offer');
+      if(offer) offer.scrollIntoView({behavior:'smooth'});
+    }, 350);
+  });
+})();
+
+/* ============== BEFORE / AFTER SLIDER ============== */
+(function(){
+  const slider = document.getElementById('baSlider');
+  if(!slider) return;
+  const before = slider.querySelector('.ba-slider__before');
+  const handle = slider.querySelector('.ba-slider__handle');
+  let isDragging = false;
+
+  function setPosition(percent){
+    percent = Math.max(0, Math.min(100, percent));
+    before.style.clipPath = `inset(0 ${100-percent}% 0 0)`;
+    before.style.webkitClipPath = `inset(0 ${100-percent}% 0 0)`;
+    handle.style.left = `${percent}%`;
+  }
+
+  function getPercent(clientX){
+    const rect = slider.getBoundingClientRect();
+    return ((clientX - rect.left) / rect.width) * 100;
+  }
+
+  function onStart(e){
+    isDragging = true;
+    slider.classList.add('is-dragging');
+    e.preventDefault();
+  }
+  function onMove(e){
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    if(isDragging){
+      setPosition(getPercent(clientX));
+    }
+  }
+  function onEnd(){
+    isDragging = false;
+    slider.classList.remove('is-dragging');
+  }
+  function onTap(e){
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    setPosition(getPercent(clientX));
+  }
+
+  // Mouse
+  slider.addEventListener('mousedown', e => { onStart(e); onTap(e); });
+  document.addEventListener('mousemove', onMove);
+  document.addEventListener('mouseup', onEnd);
+  // Touch
+  slider.addEventListener('touchstart', e => { onStart(e); onTap(e); }, {passive:false});
+  document.addEventListener('touchmove', onMove, {passive:false});
+  document.addEventListener('touchend', onEnd);
+
+  // Auto-demo on first load
+  let demoStep = 0;
+  const demoInterval = setInterval(()=>{
+    if(demoStep > 4){clearInterval(demoInterval); setPosition(50); return;}
+    setPosition([50, 25, 75, 35, 50][demoStep]);
+    demoStep++;
+  }, 800);
+  setTimeout(()=> clearInterval(demoInterval), 5000);
+})();
 </script>
 
 </body>
