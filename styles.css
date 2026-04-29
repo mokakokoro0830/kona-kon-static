@@ -159,7 +159,7 @@ section{padding:90px 0}
   font-family:var(--serif-en);font-style:italic;font-weight:500;
   font-size:0.7rem;letter-spacing:0.45em;color:var(--gold-l);
   margin-bottom:28px;text-transform:uppercase;
-  animation:floatIn 1.2s .1s cubic-bezier(.22,1.2,.36,1) both;
+  animation:floatIn 1.4s 1.4s cubic-bezier(.22,1.2,.36,1) both;
 }
 .hero__eyebrow-line{flex:0 0 38px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .hero__eyebrow-line:last-child{flex:1}
@@ -183,9 +183,9 @@ section{padding:90px 0}
 }
 /* Continuous gentle float */
 .hero__catch .hc-row{position:relative}
-.hero__catch .hc-row--1{animation:floatIn 1.4s .35s cubic-bezier(.22,1.4,.36,1) both,bobA 6s 1.5s ease-in-out infinite}
-.hero__catch .hc-row--2{animation:floatIn 1.4s .6s cubic-bezier(.22,1.4,.36,1) both,bobB 7s 1.8s ease-in-out infinite}
-.hero__catch .hc-row--3{animation:floatIn 1.4s .9s cubic-bezier(.22,1.4,.36,1) both,bobC 5.5s 2.1s ease-in-out infinite}
+.hero__catch .hc-row--1{animation:floatIn 1.6s 1.8s cubic-bezier(.22,1.4,.36,1) both,bobA 6s 4s ease-in-out infinite}
+.hero__catch .hc-row--2{animation:floatIn 1.6s 2.2s cubic-bezier(.22,1.4,.36,1) both,bobB 7s 4.5s ease-in-out infinite}
+.hero__catch .hc-row--3{animation:floatIn 1.6s 2.7s cubic-bezier(.22,1.4,.36,1) both,bobC 5.5s 5s ease-in-out infinite}
 
 .hero__catch .hc-big{
   font-family:var(--serif);font-weight:700;
@@ -224,7 +224,7 @@ section{padding:90px 0}
   font-family:var(--serif-en);font-style:italic;font-size:0.68rem;
   letter-spacing:0.3em;color:rgba(255,248,241,0.7);text-transform:uppercase;
   transform:rotate(-1deg);
-  animation:floatIn 1.2s 1.3s cubic-bezier(.22,1.2,.36,1) both;
+  animation:floatIn 1.2s 3.2s cubic-bezier(.22,1.2,.36,1) both;
 }
 .hero__seal b{color:var(--gold-l);font-weight:600;font-style:normal;letter-spacing:0.15em;font-size:0.95rem}
 
@@ -281,8 +281,34 @@ section{padding:90px 0}
   background:linear-gradient(180deg,transparent 50%,rgba(142,31,26,0.25));
   pointer-events:none;
 }
-.hero__visual--brand{background:#0E0606}
-.hero__visual--brand img{object-position:center;filter:saturate(1.05)}
+/* Cinematic Ken Burns motion on brand visual */
+.hero__visual--brand{background:#0E0606;position:relative;overflow:hidden}
+.hero__visual--brand img{
+  object-position:center;filter:saturate(1.05);
+  transform-origin:60% 50%;
+  animation:kenBurns 18s ease-in-out infinite alternate;
+  will-change:transform;
+}
+.hero__visual--brand::before{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 30%,rgba(14,6,6,0.4) 100%);
+  animation:vignette 6s ease-out 0.3s both;
+}
+.hero__visual--brand::after{
+  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(180deg,transparent 50%,rgba(142,31,26,0.18));
+  animation:videoFade 1.6s ease-out both;
+}
+@keyframes kenBurns{
+  0%{transform:scale(1.08) translate(-1.5%,1%)}
+  100%{transform:scale(1.18) translate(1.5%,-1%)}
+}
+@keyframes vignette{from{opacity:0}to{opacity:1}}
+@keyframes videoFade{from{opacity:1;background:rgba(14,6,6,0.95)}to{opacity:1}}
+
+/* Initial fade-in like video starting */
+.hero__visual--brand img{animation:kenBurns 18s ease-in-out infinite alternate,videoIntro 2s ease-out both}
+@keyframes videoIntro{from{opacity:0;filter:saturate(1.05) blur(20px)}to{opacity:1;filter:saturate(1.05) blur(0)}}
 .hero__product{
   position:absolute;bottom:48px;right:48px;width:280px;
   padding:24px;background:rgba(255,248,241,0.95);backdrop-filter:blur(8px);
