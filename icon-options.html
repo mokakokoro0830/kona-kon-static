@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Icon Options for X</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Serif JP',serif;background:#1A0F0A;color:#FBF6E8;padding:48px 24px;min-height:100vh}
+h1{font-family:'Cormorant Garamond',serif;font-size:2rem;letter-spacing:0.15em;color:#E2C887;margin-bottom:8px;text-align:center;font-weight:500}
+.sub{text-align:center;color:rgba(255,248,241,0.6);margin-bottom:48px;letter-spacing:0.08em;font-size:0.9rem}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto}
+.card{background:#2C1810;border:1px solid rgba(200,164,100,0.3);padding:32px;text-align:center}
+.card h3{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:0.2em;color:#C8A464;font-weight:500;font-style:italic;margin-bottom:6px;text-transform:uppercase}
+.card .desc{font-size:0.78rem;color:rgba(255,248,241,0.7);margin-bottom:24px;line-height:1.7}
+
+/* X-like preview */
+.previews{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:20px}
+.preview-large{width:160px;height:160px;border-radius:50%;overflow:hidden;flex-shrink:0}
+.preview-small{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1px solid rgba(255,255,255,0.1)}
+.preview-small-label{font-size:0.65rem;letter-spacing:0.15em;color:rgba(255,255,255,0.4);margin-top:4px}
+
+/* === Icon Designs === */
+
+/* 1: Monogram Gold */
+.icon-mono{
+  width:100%;height:100%;
+  background:radial-gradient(circle at 30% 30%,#3D2418,#1A0F0A);
+  display:grid;place-items:center;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:500;
+  letter-spacing:-0.02em;
+  background-clip:padding-box;
+  position:relative;
+}
+.icon-mono span{
+  font-size:55%;
+  background:linear-gradient(180deg,#E2C887 0%,#C8A464 50%,#9B7B3F 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 2px 8px rgba(200,164,100,0.4));
+}
+
+/* 2: Coffee Bean Symbol */
+.icon-bean{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#2C1810,#1A0F0A);
+  display:grid;place-items:center;
+  position:relative;overflow:hidden;
+}
+.icon-bean::before{
+  content:'';width:55%;height:75%;
+  background:linear-gradient(135deg,#E2C887,#C8A464,#9B7B3F);
+  border-radius:50%/40%;
+  transform:rotate(-25deg);
+  box-shadow:inset -8px 0 16px rgba(0,0,0,0.4);
+}
+.icon-bean::after{
+  content:'';position:absolute;width:2px;height:55%;
+  background:rgba(0,0,0,0.6);
+  transform:rotate(-25deg);
+  border-radius:1px;
+}
+
+/* 3: Leaf */
+.icon-leaf{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#FBF6E8,#F2E9CF);
+  display:grid;place-items:center;
+  position:relative;
+}
+.icon-leaf svg{width:60%;height:60%}
+
+/* 4: Initial in red */
+.icon-red{
+  width:100%;height:100%;
+  background:radial-gradient(circle at 50% 100%,#7F1D14,#5C100D);
+  display:grid;place-items:center;
+  font-family:'Noto Serif JP',serif;
+  font-weight:600;color:#E2C887;
+  position:relative;
+}
+.icon-red span{
+  font-size:55%;letter-spacing:0;
+  text-shadow:0 4px 16px rgba(0,0,0,0.5);
+}
+.icon-red::before{
+  content:'';position:absolute;inset:8%;
+  border:1px solid rgba(200,164,100,0.5);
+  border-radius:50%;
+}
+
+/* 5: Minimal Cream */
+.icon-cream{
+  width:100%;height:100%;
+  background:#FBF6E8;
+  display:grid;place-items:center;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;color:#1A0F0A;
+  position:relative;
+}
+.icon-cream span{font-size:50%;font-weight:400;letter-spacing:-0.02em}
+.icon-cream::after{
+  content:'';position:absolute;
+  bottom:18%;left:50%;transform:translateX(-50%);
+  width:25%;height:2px;
+  background:linear-gradient(90deg,transparent,#9B7B3F,transparent);
+}
+
+/* 6: Sakura petals */
+.icon-sakura{
+  width:100%;height:100%;
+  background:linear-gradient(180deg,#1A0F0A,#3D2418);
+  display:grid;place-items:center;position:relative;overflow:hidden;
+}
+.icon-sakura::before{
+  content:'❀';font-size:90%;color:#E2C887;
+  filter:drop-shadow(0 0 8px rgba(200,164,100,0.6));
+  font-family:serif;
+}
+
+.notes{margin-top:64px;max-width:600px;margin-left:auto;margin-right:auto;font-size:0.85rem;line-height:2;color:rgba(255,248,241,0.7);letter-spacing:0.04em;text-align:center;padding:24px;border:1px solid rgba(200,164,100,0.2)}
+.notes strong{color:#E2C887}
+</style>
+</head>
+<body>
+
+<h1>Icon Comparison</h1>
+<p class="sub">あなたの作品 + CSS生成の代替案 5つを並べてみました</p>
+
+<div class="grid">
+
+  <!-- User's actual icon -->
+  <div class="card" style="border-color:#E2C887;border-width:2px">
+    <h3 style="color:#E2C887">⭐ Your Icon</h3>
+    <p class="desc">あなたが生成した線画ポートレート。<br>世界観バッチリ、これが本命候補。</p>
+    <div class="previews">
+      <div class="preview-large">
+        <img src="images/_icon-preview.jpg" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div>
+        <div class="preview-small">
+          <img src="images/_icon-preview.jpg" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <p class="preview-small-label">FEED</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option 1: Monogram K -->
+  <div class="card">
+    <h3>Option 1 — K Monogram</h3>
+    <p class="desc">Cormorant斜体・金箔グラデ。<br>Kona Konロゴと完全一致。</p>
+    <div class="previews">
+      <div class="preview-large"><div class="icon-mono"><span>K</span></div></div>
+      <div>
+        <div class="preview-small"><div class="icon-mono"><span>K</span></div></div>
+        <p class="preview-small-label">FEED</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option 2: Coffee Bean -->
+  <div class="card">
+    <h3>Option 2 — Bean</h3>
+    <p class="desc">金色のコーヒー豆シルエット。<br>抽象的で覚えやすい。</p>
+    <div class="previews">
+      <div class="preview-large"><div class="icon-bean"></div></div>
+      <div>
+        <div class="preview-small"><div class="icon-bean"></div></div>
+        <p class="preview-small-label">FEED</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option 3: Leaf -->
+  <div class="card">
+    <h3>Option 3 — Wakaba</h3>
+    <p class="desc">若葉モチーフ。<br>クリーン、自然系の印象。</p>
+    <div class="previews">
+      <div class="preview-large">
+        <div class="icon-leaf">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M50 10 Q70 30 65 60 Q55 80 50 90 Q45 80 35 60 Q30 30 50 10 Z" fill="#5C7559" opacity="0.9"/>
+            <path d="M50 10 L50 90" stroke="#9B7B3F" stroke-width="1.5"/>
+            <path d="M50 30 L60 35 M50 45 L62 50 M50 60 L58 65 M50 75 L55 78" stroke="#9B7B3F" stroke-width="0.8" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="preview-small">
+          <div class="icon-leaf">
+            <svg viewBox="0 0 100 100" fill="none">
+              <path d="M50 10 Q70 30 65 60 Q55 80 50 90 Q45 80 35 60 Q30 30 50 10 Z" fill="#5C7559"/>
+              <path d="M50 10 L50 90" stroke="#9B7B3F" stroke-width="1.5"/>
+            </svg>
+          </div>
+        </div>
+        <p class="preview-small-label">FEED</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option 4: Red K -->
+  <div class="card">
+    <h3>Option 4 — Crimson K</h3>
+    <p class="desc">朱赤背景に金文字、二重円。<br>Kona Konっぽい高級感。</p>
+    <div class="previews">
+      <div class="preview-large"><div class="icon-red"><span>K</span></div></div>
+      <div>
+        <div class="preview-small"><div class="icon-red"><span>K</span></div></div>
+        <p class="preview-small-label">FEED</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option 5: Minimal Cream -->
+  <div class="card">
+    <h3>Option 5 — Minimal</h3>
+    <p class="desc">クリーム地に黒文字、金線。<br>究極のミニマル、清潔感◎。</p>
+    <div class="previews">
+      <div class="preview-large"><div class="icon-cream"><span>K</span></div></div>
+      <div>
+        <div class="preview-small"><div class="icon-cream"><span>K</span></div></div>
+        <p class="preview-small-label">FEED</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option 6: Sakura -->
+  <div class="card">
+    <h3>Option 6 — Sakura</h3>
+    <p class="desc">桜のシンボル一輪。<br>シンプル、和の雰囲気。</p>
+    <div class="previews">
+      <div class="preview-large"><div class="icon-sakura"></div></div>
+      <div>
+        <div class="preview-small"><div class="icon-sakura"></div></div>
+        <p class="preview-small-label">FEED</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="notes">
+  <strong>X実機での見え方目安：</strong><br>
+  プロフィール: 大きい円（160px）<br>
+  フィード上: 小さい円（48px）<br>
+  小さく表示してもキャラ・色・形が認識できることが大事。
+</div>
+
+</body>
+</html>
